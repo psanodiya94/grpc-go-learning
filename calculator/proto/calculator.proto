@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "github.com/psanodiya94/grpc-go-learning/calculator/proto";
+
+import "primes.proto";
+import "sqrt.proto";
+import "sum.proto";
+import "avg.proto";
+import "max.proto";
+
+service CalculatorService {
+  rpc Sum(SumRequest) returns (SumResponse);
+  rpc Sqrt(SqrtRequest) returns (SqrtResponse);
+  rpc Primes(PrimeRequest) returns (stream PrimeResponse);
+  rpc Avg(stream AvgRequest) returns (AvgResponse);
+  rpc Max(stream MaxRequest) returns (stream MaxResponse);
+}
